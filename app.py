@@ -35,6 +35,7 @@ def hello():
 @app.route("/read-file")
 def read_file():
     try:
+        # Check if the file exists, read it and return its contents
         if os.path.exists(file_path):
             with open(file_path, "r") as file:
                 content = file.read()
