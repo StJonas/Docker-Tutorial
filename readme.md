@@ -37,7 +37,7 @@ services:
 ```
 
 The build command tells Docker to build the app in the current directory. Port 8000 is specified for the frontend and a depends_on attribute is added. This ensures that the backend service starts before the frontend service.
-Lastly, the backend network is attached. The network is used by the frontend to communicate with the redis database, this way, the backend does not have to be exposed to the public.
+Lastly, the backend network is attached. The frontend uses the network to communicate with the redis database, this way, the backend does not have to be exposed to the public.
 
 Moreover, the backend is set up using a redis:alpine image. A volume is attached to persist data and the network is added:
 
@@ -63,5 +63,5 @@ docker-compose down --rmi all
 
 ## Read-file route & Bind Mounts
 
-A second route _/read-file_ has been set up to showcase bind mounts. During development, bind mounts are used to allow live updates to files without restarting the stack, which makes developing much easier. In this demo app, the file `/data/message.txt` is mounted from the host machine by adding _./data:/data_ as a volume to the frontend in the docker compose.
+A second route _/read-file_ has been set up to showcase bind mounts. During development, bind mounts allow live updates to files without restarting the stack, making developing much easier. In this demo app, the file `/data/message.txt` is mounted from the host machine by adding _./data:/data_ as a volume to the frontend in the docker compose.
 By changing text in the message.txt and reloading the route, you can see the Docker container accessing the local file.
