@@ -23,5 +23,4 @@ volumes:
   redis_data:
 
 networks:
-  frontend:
   backend:
